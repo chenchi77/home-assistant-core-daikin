@@ -8,7 +8,7 @@ import logging
 from typing import Any
 
 from aiohttp import ClientConnectionError
-from pydaikin.daikin_base import Appliance
+from pydaikin_dev.daikin_base import Appliance
 
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import (
