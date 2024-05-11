@@ -6,7 +6,7 @@
   "documentation": "https://www.home-assistant.io/integrations/daikin",
   "iot_class": "local_polling",
   "loggers": ["pydaikin"],
-  "requirements": ["pydaikin @ git+https://github.com/chenchi77/pydaikin@dev"],
+  "requirements": ["git+https://github.com/chenchi77/pydaikin@dev#pydaikin"],
   "zeroconf": ["_dkapi._tcp.local."],
   "version": "1.0.1"
 }
