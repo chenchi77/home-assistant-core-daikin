@@ -106,7 +106,7 @@ class DaikinApi:
     def __init__(self, device: Appliance) -> None:
         """Initialize the Daikin Handle."""
         self.device = device
-        self.name = device.values.get("name", "Daikin AC - Local")
+        self.name = device.values.get("name", "Daikin AC")
         self.ip_address = device.device_ip
         self._available = True
 
