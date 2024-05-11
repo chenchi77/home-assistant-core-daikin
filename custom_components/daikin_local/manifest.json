@@ -1,5 +1,5 @@
 {
-  "domain": "daikin",
+  "domain": "daikin_local",
   "name": "Daikin AC - Local",
   "codeowners": ["@fredrike"],
   "config_flow": true,
