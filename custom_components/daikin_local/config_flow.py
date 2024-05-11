@@ -14,10 +14,10 @@ import voluptuous as vol
 
 from homeassistant.components import zeroconf
 from homeassistant.config_entries import ConfigFlow, ConfigFlowResult
-from homeassistant.const import CONF_API_KEY, CONF_HOST, CONF_PASSWORD, CONF_UUID, CONF_ADAPTER
+from homeassistant.const import CONF_API_KEY, CONF_HOST, CONF_PASSWORD, CONF_UUID
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 
-from .const import DOMAIN, KEY_MAC, TIMEOUT
+from .const import DOMAIN, KEY_MAC, TIMEOUT, CONF_ADAPTER
 
 _LOGGER = logging.getLogger(__name__)
 
