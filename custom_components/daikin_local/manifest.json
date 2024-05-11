@@ -8,5 +8,5 @@
   "loggers": ["pydaikin"],
   "requirements": ["pydaikin @ git+https://github.com/chenchi77/pydaikin@dev"],
   "zeroconf": ["_dkapi._tcp.local."],
-  "version": "1.0.0"
+  "version": "1.0.1"
 }
