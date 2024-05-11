@@ -1,6 +1,6 @@
 {
   "domain": "daikin",
-  "name": "Daikin AC",
+  "name": "Daikin AC - Local",
   "codeowners": ["@fredrike"],
   "config_flow": true,
   "documentation": "https://www.home-assistant.io/integrations/daikin",
