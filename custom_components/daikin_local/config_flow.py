@@ -39,7 +39,7 @@ class FlowHandler(ConfigFlow, domain=DOMAIN):
                 vol.Required(CONF_HOST, default=self.host): str,
                 vol.Optional(CONF_API_KEY): str,
                 vol.Optional(CONF_PASSWORD): str,
-                vol.Optional(CONF_ADAPTER, default="OTHER"): vol.In(["","BRP084C"])
+                vol.Optional(CONF_ADAPTER, default="OTHER"): vol.In(["OTHER","BRP084C"])
             }
         )
 
