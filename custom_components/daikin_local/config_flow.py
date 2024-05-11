@@ -14,7 +14,7 @@ import voluptuous as vol
 
 from homeassistant.components import zeroconf
 from homeassistant.config_entries import ConfigFlow, ConfigFlowResult
-from homeassistant.const import CONF_API_KEY, CONF_HOST, CONF_PASSWORD, CONF_UUID
+from homeassistant.const import CONF_API_KEY, CONF_HOST, CONF_PASSWORD, CONF_UUID, CONF_ADAPTER
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 
 from .const import DOMAIN, KEY_MAC, TIMEOUT
@@ -39,6 +39,7 @@ class FlowHandler(ConfigFlow, domain=DOMAIN):
                 vol.Required(CONF_HOST, default=self.host): str,
                 vol.Optional(CONF_API_KEY): str,
                 vol.Optional(CONF_PASSWORD): str,
+                vol.Optional(CONF_ADAPTER, default=""): vol.In(["","BRP084C"])
             }
         )
 
@@ -49,6 +50,7 @@ class FlowHandler(ConfigFlow, domain=DOMAIN):
         key: str | None = None,
         uuid: str | None = None,
         password: str | None = None,
+        adapter: str | None = None
     ) -> ConfigFlowResult:
         """Register new entry."""
         if not self.unique_id:
@@ -63,6 +65,7 @@ class FlowHandler(ConfigFlow, domain=DOMAIN):
                 CONF_API_KEY: key,
                 CONF_UUID: uuid,
                 CONF_PASSWORD: password,
+                CONF_ADAPTER: adapter
             },
         )
 
