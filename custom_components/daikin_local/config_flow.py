@@ -8,8 +8,8 @@ from typing import Any
 from uuid import uuid4
 
 from aiohttp import ClientError, web_exceptions
-from pydaikin_dev.daikin_base import Appliance, DaikinException
-from pydaikin_dev.discovery import Discovery
+from pydaikin.daikin_base import Appliance, DaikinException
+from pydaikin.discovery import Discovery
 import voluptuous as vol
 
 from homeassistant.components import zeroconf
