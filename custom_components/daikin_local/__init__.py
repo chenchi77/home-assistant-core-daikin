@@ -26,7 +26,7 @@ import homeassistant.helpers.config_validation as cv
 from homeassistant.helpers.device_registry import CONNECTION_NETWORK_MAC, DeviceInfo
 from homeassistant.util import Throttle
 
-from .const import DOMAIN, KEY_MAC, TIMEOUT
+from .const import DOMAIN, KEY_MAC, TIMEOUT, CONF_ADAPTER
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -51,6 +51,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         conf.get(CONF_API_KEY),
         conf.get(CONF_UUID),
         conf.get(CONF_PASSWORD),
+        conf.get(CONF_ADAPTER)
     )
     if not daikin_api:
         return False
@@ -78,6 +79,7 @@ async def daikin_api_setup(
     key: str | None,
     uuid: str | None,
     password: str | None,
+    adapter: str | None,
 ) -> DaikinApi | None:
     """Create a Daikin instance only once."""
 
@@ -85,7 +87,7 @@ async def daikin_api_setup(
     try:
         async with asyncio.timeout(TIMEOUT):
             device = await Appliance.factory(
-                host, session, key=key, uuid=uuid, password=password
+                host, session, key=key, uuid=uuid, password=password, adapter=adapter
             )
     except TimeoutError as err:
         _LOGGER.debug("Connection to %s timed out", host)

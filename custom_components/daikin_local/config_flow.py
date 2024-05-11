@@ -39,7 +39,7 @@ class FlowHandler(ConfigFlow, domain=DOMAIN):
                 vol.Required(CONF_HOST, default=self.host): str,
                 vol.Optional(CONF_API_KEY): str,
                 vol.Optional(CONF_PASSWORD): str,
-                vol.Optional(CONF_ADAPTER, default=""): vol.In(["","BRP084C"])
+                vol.Optional(CONF_ADAPTER, default="OTHER"): vol.In(["","BRP084C"])
             }
         )
 
@@ -70,7 +70,7 @@ class FlowHandler(ConfigFlow, domain=DOMAIN):
         )
 
     async def _create_device(
-        self, host: str, key: str | None = None, password: str | None = None
+        self, host: str, key: str | None = None, password: str | None = None, adapter: str | None = None
     ) -> ConfigFlowResult:
         """Create device."""
         # BRP07Cxx devices needs uuid together with key
@@ -91,6 +91,7 @@ class FlowHandler(ConfigFlow, domain=DOMAIN):
                     key=key,
                     uuid=uuid,
                     password=password,
+                    adapter=adapter
                 )
         except (TimeoutError, ClientError):
             self.host = None
