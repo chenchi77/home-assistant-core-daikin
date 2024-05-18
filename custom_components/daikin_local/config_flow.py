@@ -141,6 +141,7 @@ class FlowHandler(ConfigFlow, domain=DOMAIN):
             user_input[CONF_HOST],
             user_input.get(CONF_API_KEY),
             user_input.get(CONF_PASSWORD),
+            user_input.get(CONF_ADAPTER)
         )
 
     async def async_step_zeroconf(

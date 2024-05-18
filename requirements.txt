@@ -1,0 +1,3 @@
+# Home Assistant Core
+homeassistant
+pydaikin @ git+https://github.com/chenchi77/pydaikin@dev
